@@ -7,15 +7,15 @@ const db = require("../models");
 const transporter = require('../nodemailer/');
 
 module.exports = {
-	getUser: function (req, res, next) {
-		console.log('===== user!!======')
-		console.log(req.user)
-		if (req.user) {
-			return res.json({ user: req.user })
-		} else {
-			return res.json({ user: null })
-		}
-	},
+  getUser: function (req, res, next) {
+    console.log('===== user!!======')
+    console.log(req.user)
+    if (req.user) {
+      return res.json({ user: req.user })
+    } else {
+      return res.json({ user: null })
+    }
+  },
 
 	logout: function (req, res) {
 		console.log(req.user)
@@ -79,4 +79,3 @@ module.exports = {
 		})
 	}
 }
-
