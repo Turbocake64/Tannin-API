@@ -1,23 +1,23 @@
-const express = require('express');
-const app = express();
-var cors = require('cors');
+const express = require('express')
+const app = express()
+var cors = require('cors')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 // loads our connection to the mongo database
 const passport = require('./passport')
-const db = require('./models/Employees');
-const routes = require("./routes");
-const PORT = process.env.PORT || 3001;
-const mongoose = require('mongoose');
-var mailer = require("nodemailer");
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/wines"
+const db = require('./models/Employees')
+const routes = require('./routes')
+const PORT = process.env.PORT || 3001
+const mongoose = require('mongoose')
+var mailer = require('nodemailer')
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/tannin-dev'
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 
-app.use(cors());
+app.use(cors())
 // console.log(db);
 // app.use(
 //     session({
@@ -26,17 +26,17 @@ app.use(cors());
 //         resave: false,
 //         saveUninitialized: false
 //     }))
-app.use(session({secret: "keyboard cat", resave: true, saveUninitialized: true }))
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }))
+app.use(passport.initialize())
+app.use(passport.session())
 
 if (process.env.NODE_ENV === 'production') {
-    const path = require('path');
-    // console.log('YOU ARE IN THE PRODUCTION ENV')
-    app.use('/static', express.static(path.join(__dirname, '../build/static')));
-    app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, '../build/'));
-    })
+  const path = require('path')
+  // console.log('YOU ARE IN THE PRODUCTION ENV')
+  app.use('/static', express.static(path.join(__dirname, '../build/static')))
+  app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/'))
+  })
 }
 // app.get('/',(req,res)=>(
 //     db.MasterWineList.find({}).then(Wines=>{
@@ -64,13 +64,13 @@ if (process.env.NODE_ENV === 'production') {
 //       .catch(err => res.status(422).json(err));
 // })
 
-app.use(routes);
+app.use(routes)
 // app.use(function (err, req, res, next) {
 //     console.log('====== ERROR =======')
 //     console.error(err.stack)
 //     res.status(500)
 // })
 
-app.listen(PORT, function(){
-    console.log("Listening on port %s.", PORT)
-});
+app.listen(PORT, function () {
+  console.log('Listening on port %s.', PORT)
+})

@@ -1,12 +1,12 @@
-const router = require("express").Router();
-const addwineController = require("../../controllers/addwineController");
+const router = require('express').Router()
+const addwineController = require('../../controllers/addwineController')
 
-//defining our root route or "/"
-router.route("/")
-.put(addwineController.addWine)
+// defining our root route or "/"
+router.route('/')
+  .put(addwineController.addWine)
 
-.put(addwineController.update)
+  .put(addwineController.update)
 
-.delete(addwineController.remove);
+  .delete(addwineController.remove)
 
-module.exports = router;
+module.exports = router
