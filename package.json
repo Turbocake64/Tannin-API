@@ -1,7 +1,7 @@
 {
   "name": "Tannin-API",
   "version": "1.0.0",
-  "description": "API for Wine",
+  "description": "Backend Wine API for the Tannin ecosystem",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
