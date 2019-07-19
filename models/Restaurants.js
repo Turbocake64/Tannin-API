@@ -1,10 +1,7 @@
-// Require mongoose
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var mongoose = require('mongoose')
-
-var Schema = mongoose.Schema
-
-var RestaurantSchema = new Schema({
+const RestaurantSchema = new Schema({
   name: {
     type: String
   },
@@ -35,6 +32,6 @@ var RestaurantSchema = new Schema({
   ]
 })
 
-var Restaurants = mongoose.model('Restaurants', RestaurantSchema)
+const Restaurants = mongoose.model('Restaurants', RestaurantSchema)
 
 module.exports = Restaurants

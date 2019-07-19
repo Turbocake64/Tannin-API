@@ -5,7 +5,7 @@ const apiRoutes = require('./api')
 // accessing the api route files for login/signup and for adding/getting/deleting wines, restaurants and employees
 router.use('/api', apiRoutes)
 
-// root route
+// defining our actual root route or '/'
 router.use(function(req, res) {
   res.json('Welcome to Tannin')
 })

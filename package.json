@@ -23,14 +23,12 @@
   "homepage": "https://github.com/leifaesoph/Tannin-API#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "connect-mongo": "^2.0.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "mongoose": "^5.5.5",
     "nodemailer": "^6.1.1",
     "passport": "^0.4.0",
-    "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {

@@ -1,21 +1,20 @@
 const db = require('../models')
 
 module.exports = {
-
   findAll: function (req, res) {
     db.MasterWineList.find()
       .then(dbWine => res.json(dbWine))
       .catch(err => res.status(422).json(err))
   },
 
-  create: function (req, res) {
-    db.MasterWineList.create(req.body)
+  findById: function (req, res) {
+    db.MasterWineList.findById(req.params.id)
       .then(dbWine => res.json(dbWine))
       .catch(err => res.status(422).json(err))
   },
 
-  findById: function (req, res) {
-    db.MasterWineList.findById(req.params.id)
+  create: function (req, res) {
+    db.MasterWineList.create(req.body)
       .then(dbWine => res.json(dbWine))
       .catch(err => res.status(422).json(err))
   },

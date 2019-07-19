@@ -1,7 +1,5 @@
 const db = require('../models')
 
-// change MasterWineList to Employees to access models Employees collection
-
 module.exports = {
   findAll: function (req, res) {
     db.Employees.find()
@@ -9,14 +7,14 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
 
-  create: function (req, res) {
-    db.Employees.create(req.body)
+  findById: function (req, res) {
+    db.Employees.findById(req.params.id)
       .then(dbEmp => res.json(dbEmp))
       .catch(err => res.status(422).json(err))
   },
 
-  findById: function (req, res) {
-    db.Employees.findById(req.params.id)
+  create: function (req, res) {
+    db.Employees.create(req.body)
       .then(dbEmp => res.json(dbEmp))
       .catch(err => res.status(422).json(err))
   },
@@ -35,7 +33,7 @@ module.exports = {
   },
 
   addScore: function (req, res) {
-    var queryPromise = db.Employees.findOne({ _id: req.body.userId }).exec()
+    let queryPromise = db.Employees.findOne({ _id: req.body.userId }).exec()
     queryPromise.then(function (data) {
       const results = data.scores
       const res1 = results.filter(dbScore => dbScore.wine === req.body.wine)
