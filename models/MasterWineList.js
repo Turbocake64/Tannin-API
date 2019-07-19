@@ -1,10 +1,7 @@
-// Require mongoose
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-var mongoose = require('mongoose')
-
-var Schema = mongoose.Schema
-
-var MasterWineListSchema = new Schema({
+const MasterWineListSchema = new Schema({
   name: {
     type: String
   },
@@ -68,6 +65,6 @@ var MasterWineListSchema = new Schema({
 
 })
 
-var MasterWineList = mongoose.model('MasterWineList', MasterWineListSchema)
+const MasterWineList = mongoose.model('MasterWineList', MasterWineListSchema)
 
 module.exports = MasterWineList

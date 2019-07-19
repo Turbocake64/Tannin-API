@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer')
 
+// TODO: This auth info should get moved to a .env file
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {

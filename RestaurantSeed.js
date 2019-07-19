@@ -1,11 +1,10 @@
 const mongoose = require('mongoose')
-const db = require('./models')
 
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost/tannin-dev'
 )
 
-var restaurantSeed = [
+const restaurantSeed = [
   {
     'name': 'Tutta Bella Columbia City',
     'phone': '(206)-721-3501',
